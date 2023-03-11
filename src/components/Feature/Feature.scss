@@ -5,7 +5,7 @@
   display: none;
 
   @include tablet {
-    display: contents;
+    display: block;
   }
 
   &__title {
@@ -62,54 +62,50 @@
     // }
   }
 
-  // &--1 {
-  //   display: none;
+  &--1 {
 
-  //   @include tablet {
-  //     display: block;
-  //     grid-column: 4 / 8;
+    @include tablet {
+      grid-column: 4 / 8;
 
-  //     margin-top: 50px;
-  //   }
+      margin-top: 50px;
+    }
 
-  //   @include desktop {
-  //     grid-column: 6 / 10;
+    @include desktop {
+      grid-column: 6 / 10;
 
-  //     margin-top: 24px;
-  //   }
-  // }
+      margin-top: 24px;
+    }
+  }
 
-  // &--2 {
-  //   display: none;
+  &--2 {
 
-  //   @include tablet {
-  //     display: block;
-  //     grid-column: 1 / 5;
+    @include tablet {
+      display: block;
+      grid-column: 1 / 5;
 
-  //     margin-top: 56px;
-  //   }
+      margin-top: 56px;
+    }
 
-  //   @include desktop {
-  //     grid-column: 2 / 6;
+    @include desktop {
+      grid-column: 2 / 6;
 
-  //     margin-top: 13px;
-  //   }
-  // }
+      margin-top: 13px;
+    }
+  }
 
-  // &--3 {
-  //   display: none;
+  &--3 {
 
-  //   @include tablet {
-  //     display: block;
-  //     grid-column: 3 / 6;
+    @include tablet {
+      display: block;
+      grid-column: 3 / 6;
 
-  //     margin-top: 78px;
-  //   }
+      margin-top: 78px;
+    }
 
-  //   @include desktop {
-  //     grid-column: 4 / 7;
+    @include desktop {
+      grid-column: 4 / 7;
 
-  //     margin-top: 129px;
-  //   }
-  // }
+      margin-top: 129px;
+    }
+  }
 }
