@@ -1,0 +1,112 @@
+@import "../../styles/utils/vars";
+@import "../../styles/utils/mixins";
+
+.Header {
+  padding: 28px $paddingX 0;
+
+  display: flex;
+  justify-content: center;
+
+  overflow-x: hidden;
+
+  @include tablet {
+    padding: 27px $paddingXTablet 0;
+  }
+
+  @include desktop {
+    padding: 32px $paddingXDesktop 0;
+  }
+
+  &__wrapper {
+    @include elementSize(100%, 100%);
+
+    @include limitContentWidth;
+  }
+
+  &__items {
+    display: none;
+
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      display: flex;
+      gap: 27px;
+    }
+
+    @media (min-width: 1200px) {
+      display: flex;
+      gap: 47px;
+    }
+  }
+
+  &__menu-toggler {
+    display: inline-block;
+    @include elementSize(24px, 14px);
+
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    background-image: url("../../../public/images/menu.svg");
+    background-repeat: no-repeat;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__image {
+    display: block;
+    position: relative;
+
+    object-fit: cover;
+    object-position: left;
+
+    @include elementSize(320px, 245px);
+
+    @include tablet {
+      order: 1;
+
+      @include elementSize(739px, 100%);
+    }
+
+    @include desktop {
+      @include elementSize(939px, 464px);
+    }
+  }
+
+  &__title {
+    @include fontParams(44px, 130%, 700);
+    text-transform: uppercase;
+    text-align: center;
+
+    @include tablet {
+      @include fontParams(48px, 62px, 700);
+    }
+
+    @include desktop {
+      @include fontParams(62px, 78px, 700);
+    }
+  }
+
+  &__text {
+    @include fontParams(16px, 24px);
+    min-width: 260px;
+
+    margin-top: 24px;
+
+    text-align: center;
+
+    @include tablet {
+      margin-top: 34px;
+      width: 250px;
+    }
+
+    @include desktop {
+      margin-top: 34px;
+      width: 276px;
+    }
+  }
+}
