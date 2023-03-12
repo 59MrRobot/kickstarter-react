@@ -26,14 +26,12 @@ export const Menu: React.FC = React.memo(
             </a>
 
 
-            <a
-              href="/#"
+            <button
               className="Menu__cross" 
-              id="menuOff"
               onClick={() => {
                 dispatch(slideMenuOut());
               }}
-            ></a>
+            ></button>
           </div>
 
           <Nav menu={showMenu} />

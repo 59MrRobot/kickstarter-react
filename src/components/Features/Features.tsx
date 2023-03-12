@@ -25,7 +25,7 @@ export const Features: React.FC = React.memo(
 
     const previous = useRef<HTMLButtonElement>(null);
     const next = useRef<HTMLButtonElement>(null);
-
+    
     const handleNext = () => {
       if (slideIndex < length - 1) {
         setSlideIndex((prevState: number) => (
@@ -33,9 +33,10 @@ export const Features: React.FC = React.memo(
         ))
         previous.current!.classList.add('Features__controls-button--prev-active');
         previous.current!.classList.remove('Features__controls-button--prev-inactive');
-      } 
+      }
+      
 
-      if (slideIndex === length - 1) {
+      if (slideIndex === length - 2) {
         next.current!.classList.add('Features__controls-button--next-inactive');
         next.current!.classList.remove('Features__controls-button--next-active');
       }
@@ -50,7 +51,7 @@ export const Features: React.FC = React.memo(
         next.current!.classList.remove('Features__controls-button--next-inactive');
       }
 
-      if (slideIndex === 0) {
+      if (slideIndex === 1) {
         previous.current!.classList.add('Features__controls-button--prev-inactive');
         previous.current!.classList.remove('Features__controls-button--prev-active');
       }
