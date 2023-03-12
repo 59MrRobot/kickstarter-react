@@ -9,10 +9,12 @@ import { AboutUs } from './components/AboutUs';
 import { Technology } from './components/Technology';
 import { Testimonials } from './components/Testimonials';
 import { Features } from './components/Features';
+import { Questions } from './components/Questions';
+import { Footer } from './components/Footer';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="App" id="page-top">
       <Header />
 
       <main>
@@ -31,7 +33,11 @@ const App: React.FC = () => {
         <Testimonials />
 
         <Features />
+
+        <Questions />
       </main>
+
+      <Footer />
     </div>
   );
 }

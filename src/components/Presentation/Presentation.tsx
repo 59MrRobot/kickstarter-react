@@ -7,7 +7,7 @@ export const Presentation: React.FC = React.memo(
     const play = useRef<HTMLButtonElement>(null);
 
     return (
-      <section className="Presentation">
+      <section className="Presentation" id="presentation">
         <video
           poster={`${process.env.PUBLIC_URL}/images/presentation.png`}
           ref={video}

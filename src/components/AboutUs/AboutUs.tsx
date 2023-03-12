@@ -5,7 +5,7 @@ import '../../styles/title.scss';
 export const AboutUs: React.FC = React.memo(
   () => {
     return (
-      <section className="AboutUs" id="AboutUs">
+      <section className="AboutUs" id="about-us">
         <div className="AboutUs__wrapper">
           <div className="AboutUs__image AboutUs__image--tablet"></div>
 

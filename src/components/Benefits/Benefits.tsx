@@ -32,7 +32,7 @@ export const Benefits: React.FC = React.memo(
         <div className="Benefits__wrapper">
           <div className="Benefits__container">
             {benefits.map((benefit) => (
-              <Benefit benefit={benefit} />
+              <Benefit benefit={benefit} key={benefit.title} />
             ))}
           </div>
         </div>

@@ -53,7 +53,7 @@ export const Topbar: React.FC = React.memo(
 
         <a
           href="/#menu"
-          className="Header__menu-toggler" 
+          className="Header__menu-toggler"
           id="menuOn"
           onClick={() => {
             dispatch(slideMenuIn());

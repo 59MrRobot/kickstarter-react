@@ -5,7 +5,7 @@
   display: none;
 
   @include tablet {
-    display: block;
+    display: flex;
   }
 
   &__title {
