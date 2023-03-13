@@ -11,8 +11,22 @@ import { Testimonials } from './components/Testimonials';
 import { Features } from './components/Features';
 import { Questions } from './components/Questions';
 import { Footer } from './components/Footer';
+import { useSelector } from 'react-redux';
+
+const body = document.getElementById("body");
 
 const App: React.FC = () => {
+  const showMenu = useSelector((state: any) => state.showMenu);
+
+
+  if (showMenu && body) {
+    body.style.overflow = 'hidden';
+  } 
+  
+  if (!showMenu && body){
+    body.style.overflow = 'visible';
+  }
+  
   return (
     <div className="App" id="page-top">
       <Header />
