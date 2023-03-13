@@ -11,7 +11,7 @@ export const Testimonials: React.FC = React.memo(
           </p>
 
           <img
-            src={`${process.env.PUBLIC_URL}/images/Testimonials/person.png`}
+            src={`${process.env.PUBLIC_URL}/images/testimonials/person.png`}
             alt="garrett martin"
             className="Testimonials__image"
           />
