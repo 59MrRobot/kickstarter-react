@@ -4,12 +4,19 @@ import '../../styles/button.scss';
 
 export const Form: React.FC = React.memo(
   () => {
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+    }
+
     return (
       <form
         action="#"
-        method="get"
+        method="post"
         className="Form Questions__form"
-        id="form">
+        id="form"
+        onSubmit={handleSubmit}
+      >
         <input
           type="email"
           name="email"
