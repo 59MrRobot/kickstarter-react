@@ -19,7 +19,7 @@ export const Menu: React.FC = React.memo(
           <div className="Menu__controls">
             <a href="/#">
               <img
-                src="/images/logo.svg"
+                src={`${process.env.PUBLIC_URL}/images/logo.svg`}
                 alt="crybaby logo"
                 className="logo"
               />
