@@ -25,16 +25,18 @@ const benefits = [
   },
 ]
 
-export const Benefits: React.FC = () => {
-  return (
-    <section className="Benefits">
-      <div className="Benefits__wrapper">
-        <div className="Benefits__container">
-          {benefits.map((benefit) => (
-            <Benefit benefit={benefit} key={benefit.title} />
-          ))}
+export const Benefits: React.FC = React.memo(
+  () => {
+    return (
+      <section className="Benefits">
+        <div className="Benefits__wrapper">
+          <div className="Benefits__container">
+            {benefits.map((benefit) => (
+              <Benefit benefit={benefit} key={benefit.title} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  )
-}
+      </section>
+    )
+  }
+)

@@ -18,102 +18,104 @@ const features = [
   },
 ];
 
-export const Features: React.FC = () => {
-  const [slideIndex, setSlideIndex] = useState(0);
-  const length = features.length;
+export const Features: React.FC = React.memo(
+  () => {
+    const [slideIndex, setSlideIndex] = useState(0);
+    const length = features.length;
 
-  const previous = useRef<HTMLButtonElement>(null);
-  const next = useRef<HTMLButtonElement>(null);
-  
-  const handleNext = () => {
-    if (slideIndex < length - 1) {
-      setSlideIndex((prevState: number) => (
-        prevState += 1
-      ))
-      previous.current!.classList.add('Features__controls-button--prev-active');
-      previous.current!.classList.remove('Features__controls-button--prev-inactive');
-    }
+    const previous = useRef<HTMLButtonElement>(null);
+    const next = useRef<HTMLButtonElement>(null);
     
+    const handleNext = () => {
+      if (slideIndex < length - 1) {
+        setSlideIndex((prevState: number) => (
+          prevState += 1
+        ))
+        previous.current!.classList.add('Features__controls-button--prev-active');
+        previous.current!.classList.remove('Features__controls-button--prev-inactive');
+      }
+      
 
-    if (slideIndex === length - 2) {
-      next.current!.classList.add('Features__controls-button--next-inactive');
-      next.current!.classList.remove('Features__controls-button--next-active');
+      if (slideIndex === length - 2) {
+        next.current!.classList.add('Features__controls-button--next-inactive');
+        next.current!.classList.remove('Features__controls-button--next-active');
+      }
     }
-  }
 
-  const handlePrevious = () => {
-    if (slideIndex > 0) {
-      setSlideIndex((prevState: number) => (
-        prevState -= 1
-      ))
-      next.current!.classList.add('Features__controls-button--next-active');
-      next.current!.classList.remove('Features__controls-button--next-inactive');
+    const handlePrevious = () => {
+      if (slideIndex > 0) {
+        setSlideIndex((prevState: number) => (
+          prevState -= 1
+        ))
+        next.current!.classList.add('Features__controls-button--next-active');
+        next.current!.classList.remove('Features__controls-button--next-inactive');
+      }
+
+      if (slideIndex === 1) {
+        previous.current!.classList.add('Features__controls-button--prev-inactive');
+        previous.current!.classList.remove('Features__controls-button--prev-active');
+      }
     }
 
-    if (slideIndex === 1) {
-      previous.current!.classList.add('Features__controls-button--prev-inactive');
-      previous.current!.classList.remove('Features__controls-button--prev-active');
-    }
-  }
+    return (
+      <section className="Features" id="features">
+        <div className="Features__wrapper">
+          <h2 className="title Features__title">Features</h2>
 
-  return (
-    <section className="Features" id="features">
-      <div className="Features__wrapper">
-        <h2 className="title Features__title">Features</h2>
+          <div className="Features__slides">
+            {features.map((feature, index) => (
+              <Feature 
+                feature={feature}
+                index={index}
+                mobile={true}
+                slideIndex={slideIndex}
+                key={feature.title}
+              />
+            ))}
 
-        <div className="Features__slides">
-          {features.map((feature, index) => (
-            <Feature 
-              feature={feature}
-              index={index}
-              mobile={true}
-              slideIndex={slideIndex}
-              key={feature.title}
-            />
-          ))}
+            <div className="Features__controls">
+              <div>
+                <button
+                  className="Features__controls-button Features__controls-button--prev-inactive"
+                  id="prevInactive"
+                  ref={previous}
+                  onClick={() => handlePrevious()}
+                >
+                </button>
 
-          <div className="Features__controls">
-            <div>
-              <button
-                className="Features__controls-button Features__controls-button--prev-inactive"
-                id="prevInactive"
-                ref={previous}
-                onClick={() => handlePrevious()}
-              >
-              </button>
+                <button
+                  className="Features__controls-button Features__controls-button--next-active"
+                  id="nextActive"
+                  ref={next}
+                  onClick={() => handleNext()}
+                >
+                </button>
+              </div>
 
-              <button
-                className="Features__controls-button Features__controls-button--next-active"
-                id="nextActive"
-                ref={next}
-                onClick={() => handleNext()}
-              >
-              </button>
-            </div>
-
-            <div className="Features__controls-number">
-              <p 
-                className="Features__controls-number-prev" 
-                id="featureNumber"
-              >
-                0{slideIndex + 1}
-              </p>
+              <div className="Features__controls-number">
+                <p 
+                  className="Features__controls-number-prev" 
+                  id="featureNumber"
+                >
+                  0{slideIndex + 1}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="Features__background"></div>
-        
-        {features.map((feature, index) => (
-            <Feature 
-              feature={feature}
-              index={index}
-              mobile={false}
-              slideIndex={slideIndex}
-              key={feature.title}
-            />
-          ))}
-      </div>
-    </section>
-  )
-}
+          <div className="Features__background"></div>
+          
+          {features.map((feature, index) => (
+              <Feature 
+                feature={feature}
+                index={index}
+                mobile={false}
+                slideIndex={slideIndex}
+                key={feature.title}
+              />
+            ))}
+        </div>
+      </section>
+    )
+  }
+)
